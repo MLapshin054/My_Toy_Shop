@@ -5,8 +5,6 @@ import java.util.*;
 
 public final class Lottery {
   private static PriorityQueue<Toys> sequence;
-  private static String[] toyName;
-  private static int[] toyQty;
 
   Lottery() {
       sequence = new PriorityQueue<>((t1, t2) -> Float.compare(t1.getFreq(), t2.getFreq()));
@@ -48,7 +46,7 @@ public final class Lottery {
 
   public static Toys getToyById(int id) {
       for (Toys toy : sequence) {
-          if (toy.getQty() == id) {
+          if (toy.getId() == id) {
               return toy;
           }
       }
@@ -56,7 +54,7 @@ public final class Lottery {
   }
 
   public static boolean checkAvailable (Toys toy){
-      if (toy.getId() > 0){
+      if (toy.getQty() > 0){
           toy.qty -= 1;
           return true;
       }

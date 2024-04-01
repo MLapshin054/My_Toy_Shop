@@ -18,6 +18,10 @@ public class Toys {
     return name;
   }
 
+  public int getId(){
+    return id;
+  }
+
   public int getQty() {
     return qty;
   }

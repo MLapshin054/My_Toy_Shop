@@ -14,7 +14,14 @@ public class Main {
         Lottery.put("8 Train 30 0.30");
 
         ArrayList<Toys> winners = new ArrayList<>();
-        
-
+        for (int i=0; i < 10; i++){
+            int wonToyId = Lottery.getToyId();
+            Toys wonToy = Lottery.getToyById(wonToyId);
+            assert wonToy != null;
+            if (Lottery.checkAvailable(wonToy)){
+                winners.add(wonToy);
+            }
+        }
+        Lottery.saveToFile("Result.txt", winners);
     }
 }
